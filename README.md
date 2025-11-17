@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+# Word Frequency Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, real-time word frequency analysis tool built with React and TypeScript. Paste or type any text and instantly see the top 20 most frequently used words with visual frequency bars.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time Analysis**: Word counts update instantly as you type or paste text
+- **Top 20 Words**: Automatically displays the 20 most frequent words ranked by usage
+- **Visual Statistics**: 
+  - Total word count
+  - Unique word count
+  - Visual frequency bars for each word
+- **Beautiful UI**: Modern, dark-themed interface with gradient accents
+- **Smart Tokenization**: Handles contractions, numbers, and Unicode characters properly
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling
+- **ESLint** - Code linting
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js (v18 or higher)
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/WordsFrequency.git
+cd WordsFrequency
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production build will be in the `dist` directory.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Deploy to GitHub Pages
+
+```bash
+npm run deploy
+```
+
+This will build the project and deploy it to GitHub Pages using the `gh-pages` package.
+
+## How It Works
+
+1. **Input**: Paste or type any text in the input area
+2. **Tokenization**: The text is tokenized into words (handling contractions, numbers, and Unicode)
+3. **Counting**: Each word is counted and sorted by frequency
+4. **Display**: The top 20 words are displayed with:
+   - Rank number
+   - Word
+   - Count
+   - Visual frequency bar (proportional to the most frequent word)
+
+## Project Structure
+
+```
+WordsFrequency/
+├── src/
+│   ├── App.tsx          # Main application component
+│   ├── main.tsx         # Application entry point
+│   ├── App.css          # Component styles
+│   └── index.css        # Global styles
+├── public/              # Static assets
+├── dist/                # Production build output
+├── package.json         # Dependencies and scripts
+└── vite.config.ts       # Vite configuration
+```
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
+
+## License
+
+This project is open source and available under the MIT License.
